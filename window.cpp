@@ -22,9 +22,9 @@ void Window::initializeGL()
 
 void Window::resizeGL(int width, int height)
 {
-  // Currently we are not handling width/height changes
-  (void)width;
-  (void)height;
+    // Currently we are not handling width/height changes
+    (void)width;
+    (void)height;
 }
 
 void Window::paintGL()
