@@ -4,7 +4,7 @@
 #include <QMatrix4x4>
 #include <QOpenGLFunctions>
 
-#include "shaders.h"
+#include "../include/shaders.h"
 
 Window::Window()
 {
