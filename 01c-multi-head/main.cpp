@@ -14,7 +14,9 @@ int main(int argc, char *argv[])
     format.setRenderableType(QSurfaceFormat::OpenGL);
 
     // Basic multi screen information
-    qInfo() << "System has" << m_desktop->screenCount() << "screens";
+    qInfo() << "Is Virtual Desktop?" << m_desktop->isVirtualDesktop();
+    qInfo() << "System has" << m_desktop->screenCount() << "screens, v_width"
+            << m_desktop->width() << ",v_height" << m_desktop->height();
     for (int i = 0; i < m_desktop->screenCount(); i++) {
         qInfo() << "Geometry:" << m_desktop->screenGeometry(i);
     }
