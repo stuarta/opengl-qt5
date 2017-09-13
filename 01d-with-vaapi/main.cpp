@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     // QX11Info to get a display reference
     Display         *m_x_display = QX11Info::display();
     // libva get GLX context for vaapi
-    void            *m_va_display = vaGetDisplayGLX(m_x_display);
+    VADisplay       m_va_display = vaGetDisplayGLX(m_x_display);
 
     // Init VAAPI
     VAStatus va_status;
