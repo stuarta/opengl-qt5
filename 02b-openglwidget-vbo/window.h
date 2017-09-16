@@ -20,6 +20,7 @@ protected:
 private:
     QOpenGLShaderProgram *m_program;
     GLint m_attribute_coord2d;
+    GLuint m_vbo_triangle;
 };
 
 #endif //WINDOW_H

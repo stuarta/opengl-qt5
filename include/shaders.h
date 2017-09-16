@@ -23,5 +23,4 @@ GLfloat triangle_vertices[] = {
      0.8, -0.8,
 };
 
-GLuint vbo_triangle;
 #endif

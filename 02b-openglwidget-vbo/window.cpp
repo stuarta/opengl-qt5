@@ -13,7 +13,7 @@ Window::Window()
 Window::~Window()
 {
     delete m_program;
-    glDeleteBuffers(1, &vbo_triangle);
+    glDeleteBuffers(1, &m_vbo_triangle);
 }
 
 void Window::initializeGL()
@@ -25,8 +25,8 @@ void Window::initializeGL()
     m_program->link();
     m_attribute_coord2d = m_program->attributeLocation("coord2d");
     // VBO Handling
-    glGenBuffers(1, &vbo_triangle);
-    glBindBuffer(GL_ARRAY_BUFFER, vbo_triangle);
+    glGenBuffers(1, &m_vbo_triangle);
+    glBindBuffer(GL_ARRAY_BUFFER, m_vbo_triangle);
     glBufferData(GL_ARRAY_BUFFER, sizeof(triangle_vertices), triangle_vertices, GL_STATIC_DRAW);
 }
 
@@ -44,7 +44,7 @@ void Window::paintGL()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     m_program->bind();
-    glBindBuffer(GL_ARRAY_BUFFER, vbo_triangle);
+    glBindBuffer(GL_ARRAY_BUFFER, m_vbo_triangle);
     glEnableVertexAttribArray(m_attribute_coord2d);
     glVertexAttribPointer(m_attribute_coord2d, 2, GL_FLOAT, GL_FALSE, 0, 0);
     glEnableVertexAttribArray(m_attribute_coord2d);
