@@ -15,10 +15,18 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     // QDesktopWidget allows us to get the multi screen data
     QDesktopWidget  *m_desktop = app.desktop();
+    VADisplay       m_va_display;
     // Connect to wayland
     struct wl_display *m_wl_display = wl_display_connect(NULL);
-    // libva get wayland context for vaapi
-    VADisplay       m_va_display = vaGetDisplayWl(m_wl_display);
+    if (m_wl_display != NULL) {
+        qInfo() << "Successfully connected to wayland";
+        // libva get wayland context for vaapi
+        m_va_display = vaGetDisplayWl(m_wl_display);
+    } else {
+        qInfo() << "Failed to get wayland connection, falling back to X11";
+        Display *m_x_display = QX11Info::display();
+        m_va_display = vaGetDisplayGLX(m_x_display);
+    } 
 
     // Init VAAPI
     VAStatus va_status;
