@@ -16,6 +16,8 @@ int main(int argc, char *argv[])
     // QDesktopWidget allows us to get the multi screen data
     QDesktopWidget  *m_desktop = app.desktop();
     VADisplay       m_va_display;
+    // Check Qt Platform Abstraction report
+    qInfo() << "Qt Platform reports platform name = " << app.platformName();
     // Connect to wayland
     struct wl_display *m_wl_display = wl_display_connect(NULL);
     if (m_wl_display != NULL) {
