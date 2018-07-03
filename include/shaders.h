@@ -12,9 +12,10 @@ const char *fs_source =
     //"#version 100\n"  // OpenGL ES 2.0
     //"#version 120\n"  // OpenGL 2.1
     "void main(void) {        "
-    "  gl_FragColor[0] = 0.0; "
-    "  gl_FragColor[1] = 0.0; "
-    "  gl_FragColor[2] = 1.0; "
+//    "  gl_FragColor[0] = 0.0; "
+//    "  gl_FragColor[1] = 0.0; "
+//    "  gl_FragColor[2] = 1.0; "
+      "  gl_FragColor = vec4(0.0, 0.0, 1.0, 1.0); "
     "}";
 
 GLfloat triangle_vertices[] = {
