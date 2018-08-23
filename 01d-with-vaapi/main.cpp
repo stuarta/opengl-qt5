@@ -25,6 +25,8 @@ int main(int argc, char *argv[])
     {
         qInfo() << vaErrorStr(va_status);
     }
+    qInfo() << "Is VA display valid? " << vaDisplayIsValid(m_va_display);
+    qInfo() << "VAAPI Vendor = " << vaQueryVendorString(m_va_display);
 
     // Set OpenGL Version information
     // Note: This format must be set before show() is called.
